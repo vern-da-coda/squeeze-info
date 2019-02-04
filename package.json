@@ -1,0 +1,28 @@
+{
+  "name": "squeeze-info",
+  "version": "0.0.1",
+  "description": "Squeezebox info image generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vern-da-coda/squeeze-info.git"
+  },
+  "keywords": [
+    "squeezebox",
+    "image-browser",
+    "weather",
+    "traffic"
+  ],
+  "author": "Bjoern Kaemmereit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vern-da-coda/squeeze-info/issues"
+  },
+  "homepage": "https://github.com/vern-da-coda/squeeze-info#readme",
+  "dependencies": {
+    "puppeteer": "^1.12.1"
+  }
+}
