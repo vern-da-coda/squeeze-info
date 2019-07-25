@@ -24,3 +24,12 @@ services:
         tags: ['controller.service_arguments']
 
     App\Api\HueApi: '@eight_points_guzzle.client.hue'
+    App\Service\HueService:
+        arguments:
+            $userId: "%env(HUE_USER_ID)%"
+
+    App\Api\GardenaApi: '@eight_points_guzzle.client.gardena'
+    App\Service\GardenaService:
+        arguments:
+            $user: "%env(GARDENA_USER)%"
+            $pass: "%env(GARDENA_PASS)%"

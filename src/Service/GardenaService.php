@@ -2,34 +2,36 @@
 
 namespace App\Service;
 
-use App\Api\HueApi;
+use App\Api\GardenaApi;
 
 /**
  *
  */
-class HueService
+class GardenaService
 {
     /**
-     * @var HueApi
+     * @var GardenaApi
      */
     private $api;
+    /**
+     * @var string
+     */
+    private $user;
+    /**
+     * @var string
+     */
+    private $pass;
 
     /**
-     * HueService constructor.
-     *
-     * @param HueApi $api
+     * @param GardenaApi $api
+     * @param string     $user
+     * @param string     $pass
      */
-    public function __construct(HueApi $api)
+    public function __construct(GardenaApi $api, string $user, string $pass)
     {
         $this->api = $api;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTemperatureOf1stFloor()
-    {
-        return $this->getTemperature(10);
+        $this->user = $user;
+        $this->pass = $pass;
     }
 
     /**
@@ -48,13 +50,5 @@ class HueService
         $data = json_decode($response->getBody(), true);
 
         return intval($data['state']['temperature']);
-    }
-
-    /**
-     * @return int
-     */
-    public function getTemperatureOf2ndFloor()
-    {
-        return $this->getTemperature(14);
     }
 }

@@ -15,11 +15,12 @@ eight_points_guzzle:
                 # set to false to disable throwing exceptions on an HTTP protocol errors (4xx and 5xx responses)
                 http_errors: true
 
-                # each key is the name of a header, and each value is a string or array of strings representing the
-                # header field values.
                 headers:
                     User-Agent: "EightPointsGuzzleBundle/v7"
 
             # Find plugins here:
             # https://github.com/8p/EightPointsGuzzleBundle#known-and-supported-plugins
             plugin: ~
+        gardena:
+            class: App\Api\GardenaApi
+            base_url: "http://sg-api.dss.husqvarnagroup.net/"

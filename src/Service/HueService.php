@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Api\HueApi;
+use Exception;
 
 /**
  *
@@ -15,13 +16,18 @@ class HueService
     private $api;
 
     /**
-     * HueService constructor.
-     *
-     * @param HueApi $api
+     * @var string
      */
-    public function __construct(HueApi $api)
+    private $userId;
+
+    /**
+     * @param HueApi $api
+     * @param string $userId
+     */
+    public function __construct(HueApi $api, string $userId)
     {
         $this->api = $api;
+        $this->userId = $userId;
     }
 
     /**
@@ -36,16 +42,22 @@ class HueService
      * @param $sensorId
      *
      * @return int
+     * @throws Exception
      */
     private function getTemperature($sensorId)
     {
         $response =
             $this->api->get(
-                'api/vxtUxmA98q524CYXRkOa0WuR3vMLvfdL8yQT97xi/sensors/' .
+                'api/' . $this->userId . '/sensors/' .
                 $sensorId
             );
 
         $data = json_decode($response->getBody(), true);
+
+        if (!isset($data['state']['temperature']))
+        {
+            throw new Exception('Temperature data not available');
+        }
 
         return intval($data['state']['temperature']);
     }

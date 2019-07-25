@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/vern-da-coda/squeeze-info#readme",
   "dependencies": {
+    "bootstrap": "4.3.1",
     "puppeteer": "^1.12.1"
   },
   "devDependencies": {
@@ -31,11 +32,9 @@
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "tailwindcss": "^1.0.1",
     "webpack-notifier": "^1.6.0"
   },
   "scripts": {
-    "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production --progress"

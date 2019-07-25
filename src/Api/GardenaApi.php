@@ -5,9 +5,9 @@ namespace App\Api;
 use GuzzleHttp\Client;
 
 /**
- * HueApi
+ * GardenaApi
  */
-class HueApi extends Client
+class GardenaApi extends Client
 {
 
 }

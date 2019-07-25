@@ -9,11 +9,16 @@
         <div class="w-3/5  h-12">
             <p>
                 <i class="fas fa-temperature-low"></i>
-                {{ (first|round(1))|number_format(1, '.', ',') }}
+                {{ (soil|round(1))|number_format(1, '.', ',') }}
             </p>
             <p>
                 <i class="fas fa-temperature-low"></i>
-                {{ (second|round(1))|number_format(1, '.', ',') }}
+                {{ (lawn|round(1))|number_format(1, '.', ',') }}
+
+            </p>
+            <p>
+                <i class="fas fa-temperature-low"></i>
+                {{ (air|round(1))|number_format(1, '.', ',') }}
 
             </p>
         </div>
