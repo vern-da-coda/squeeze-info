@@ -3,9 +3,9 @@
 # https://github.com/8p/EightPointsGuzzleBundle/blob/master/src/Resources/doc/configuration-reference.md
 eight_points_guzzle:
     clients:
-        my_client:
-            # Write here the host where to do requests
-            # base_url: "http://target.url"
+        hue:
+            class: App\Api\HueApi
+            base_url: "http://192.168.0.11/"
 
             # Request options: http://docs.guzzlephp.org/en/stable/request-options.html
             options:

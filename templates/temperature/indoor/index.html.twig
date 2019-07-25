@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <br>
+
+    <div class="flex">
+        <div class="w-1/5  h-12"></div>
+        <div class="w-3/5  h-12">
+            <p>
+                <i class="fas fa-temperature-low"></i>
+                {{ (first|round(1))|number_format(1, '.', ',') }}
+            </p>
+            <p>
+                <i class="fas fa-temperature-low"></i>
+                {{ (second|round(1))|number_format(1, '.', ',') }}
+
+            </p>
+        </div>
+        <div class="w-1/5 h-12"></div>
+    </div>
+
+    <a class="weatherwidget-io" href="https://forecast7.com/de/53d559d99/hamburg/" data-label_1="HAMBURG" data-label_2="WETTER" data-font="Roboto" data-icons="Climacons" data-theme="dark" >HAMBURG WEATHER</a>
+    <script>
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
+
+{% endblock %}
