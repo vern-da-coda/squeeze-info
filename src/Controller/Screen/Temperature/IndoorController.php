@@ -25,7 +25,6 @@ class IndoorController extends AbstractController
      */
     public function __construct(HueService $hueService)
     {
-
         $this->hueService = $hueService;
     }
 

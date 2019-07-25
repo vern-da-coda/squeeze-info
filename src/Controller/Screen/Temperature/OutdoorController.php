@@ -2,7 +2,7 @@
 
 namespace App\Controller\Screen\Temperature;
 
-use App\Service\HueService;
+use App\Service\GardenaService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,25 +12,25 @@ use Symfony\Component\Routing\Annotation\Route;
  * IndoorController
  * @Route(path="/screen/temperature")
  */
-class IndoorController extends AbstractController
+class OutdoorController extends AbstractController
 {
     /**
-     * @var HueService
+     * @var GardenaService
      */
-    private $hueService;
+    private $gardenaService;
 
 
     /**
-     * @param HueService $hueService
+     * @param GardenaService $gardenaService
      */
-    public function __construct(HueService $hueService)
+    public function __construct(GardenaService $gardenaService)
     {
 
-        $this->hueService = $hueService;
+        $this->gardenaService = $gardenaService;
     }
 
     /**
-     * @Route(path="/indoor", name="temperature-indoor", methods={"GET"})
+     * @Route(path="/outdoor", name="temperature-outdoor", methods={"GET"})
      *
      * @param Request $request
      *
@@ -39,10 +39,11 @@ class IndoorController extends AbstractController
     public function index(Request $request): Response
     {
         return $this->render(
-            'temperature/indoor/index.html.twig',
+            'temperature/outdoor/index.html.twig',
             [
-                'first' => $this->hueService->getTemperatureOf1stFloor()/100,
-                'second' => $this->hueService->getTemperatureOf2ndFloor()/100
+                'soil' => 1,
+                'lawn' => 2,
+                'air'  => 3
             ]
         );
     }
