@@ -6,6 +6,7 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "ext-json": "*",
+    "ext-curl": "*",
     "eightpoints/guzzle-bundle": "^7.5",
     "sensio/framework-extra-bundle": "^5.3",
     "spatie/browsershot": "^3.29",
@@ -15,7 +16,8 @@
     "symfony/framework-bundle": "4.2.*",
     "symfony/process": "4.2.*",
     "symfony/webpack-encore-bundle": "^1.5",
-    "symfony/yaml": "4.2.*"
+    "symfony/yaml": "4.2.*",
+    "predis/predis": "^1.1"
   },
   "require-dev": {
     "symfony/debug-pack": "^1.0",

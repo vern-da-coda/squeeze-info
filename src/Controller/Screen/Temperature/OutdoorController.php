@@ -38,6 +38,8 @@ class OutdoorController extends AbstractController
      */
     public function index(Request $request): Response
     {
+        $this->gardenaService->getDeviceData();
+
         return $this->render(
             'temperature/outdoor/index.html.twig',
             [

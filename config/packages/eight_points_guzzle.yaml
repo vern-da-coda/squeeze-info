@@ -21,6 +21,10 @@ eight_points_guzzle:
             # Find plugins here:
             # https://github.com/8p/EightPointsGuzzleBundle#known-and-supported-plugins
             plugin: ~
+
         gardena:
             class: App\Api\GardenaApi
-            base_url: "http://sg-api.dss.husqvarnagroup.net/"
+            base_url: "https://sg-api.dss.husqvarnagroup.net/"
+            options:
+                headers:
+                    Content-Type: "application/json"

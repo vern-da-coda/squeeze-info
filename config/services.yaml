@@ -23,10 +23,15 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Service\CacheService:
+        arguments:
+            $host: "%env(REDIS_HOST)%"
+            $port: "%env(REDIS_PORT)%"
+
     App\Api\HueApi: '@eight_points_guzzle.client.hue'
     App\Service\HueService:
         arguments:
-            $userId: "%env(HUE_USER_ID)%"
+            $user: "%env(HUE_USER)%"
 
     App\Api\GardenaApi: '@eight_points_guzzle.client.gardena'
     App\Service\GardenaService:

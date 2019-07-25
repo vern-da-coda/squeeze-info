@@ -18,16 +18,16 @@ class HueService
     /**
      * @var string
      */
-    private $userId;
+    private $user;
 
     /**
      * @param HueApi $api
-     * @param string $userId
+     * @param string $user
      */
-    public function __construct(HueApi $api, string $userId)
+    public function __construct(HueApi $api, string $user)
     {
         $this->api = $api;
-        $this->userId = $userId;
+        $this->user = $user;
     }
 
     /**
@@ -48,7 +48,7 @@ class HueService
     {
         $response =
             $this->api->get(
-                'api/' . $this->userId . '/sensors/' .
+                'api/' . $this->user . '/sensors/' .
                 $sensorId
             );
 
