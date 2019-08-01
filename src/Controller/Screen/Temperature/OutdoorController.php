@@ -38,14 +38,14 @@ class OutdoorController extends AbstractController
      */
     public function index(Request $request): Response
     {
-        $this->gardenaService->getDeviceData();
+        $data = $this->gardenaService->getDevicesData();
 
         return $this->render(
             'temperature/outdoor/index.html.twig',
             [
-                'soil' => 1,
-                'lawn' => 2,
-                'air'  => 3
+                'soil' => $data['devices'][1]['abilities'][4]['properties'][0]['value'],
+                'lawn' => $data['devices'][1]['abilities'][3]['properties'][0]['value'],
+                'air'  => $data['devices'][2]['abilities'][4]['properties'][0]['value'],
             ]
         );
     }

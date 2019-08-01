@@ -58,7 +58,13 @@ class GardenaService
         $this->pass = $pass;
         $this->cache = $cache;
 
-        $this->prepareAuth();
+        try
+        {
+            $this->prepareAuth();
+        } catch(Exception $exception)
+        {
+            die($exception->getMessage());
+        }
     }
 
     /**
@@ -150,9 +156,9 @@ class GardenaService
     }
 
     /**
-     *
+     * @return array
      */
-    public function getDeviceData()
+    public function getDevicesData()
     {
         $response =
             $this->api->get(
@@ -165,8 +171,21 @@ class GardenaService
                 ]
             );
 
-        $data = json_decode($response->getBody(), true);
-
-        var_dump($data);
+        return json_decode($response->getBody(), true);
     }
+
+    public function getDeviceData(array $devicesData, string $deviceName)
+    {
+        foreach ($devicesData as $deviceData){
+        }
+    }
+
+    public function getSensorData(array $devicesData){
+
+    }
+
+    public function getWaterControlData(array $devicesData){
+
+    }
+
 }
