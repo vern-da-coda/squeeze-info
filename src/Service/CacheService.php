@@ -54,11 +54,12 @@ class CacheService
     /**
      * @param string $key
      * @param string $value
+     * @param int    $expireSeconds
      *
      * @return mixed
      */
-    public function set(string $key, string $value)
+    public function set(string $key, string $value, int $expireSeconds = 60 * 60)
     {
-        return $this->client->set($key, $value);
+        return $this->client->setex($key, $expireSeconds, $value);
     }
 }

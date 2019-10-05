@@ -46,6 +46,11 @@ class GardenaService
     private $token;
 
     /**
+     * @var int
+     */
+    private $cacheExpireTime = 60 * 60 * 24;
+
+    /**
      * @param GardenaApi   $api
      * @param string       $user
      * @param string       $pass
@@ -101,7 +106,8 @@ class GardenaService
 
                 $this->cache->set(
                     CacheKey::GARDENA_AUTH_TOKEN,
-                    $this->token
+                    $this->token,
+                    $this->cacheExpireTime
                 );
             }
             else
@@ -111,11 +117,12 @@ class GardenaService
 
             if (isset($data['sessions']['user_id']))
             {
-                $thiis->userId = $data['sessions']['user_id'];
+                $this->userId = $data['sessions']['user_id'];
 
                 $this->cache->set(
                     CacheKey::GARDENA_AUTH_USER_ID,
-                    $this->userId
+                    $this->userId,
+                    $this->cacheExpireTime
                 );
             }
             else
@@ -145,7 +152,8 @@ class GardenaService
 
                 $this->cache->set(
                     CacheKey::GARDENA_LOCATION_ID,
-                    $this->locationId
+                    $this->locationId,
+                    $this->cacheExpireTime
                 );
             }
             else
@@ -176,15 +184,18 @@ class GardenaService
 
     public function getDeviceData(array $devicesData, string $deviceName)
     {
-        foreach ($devicesData as $deviceData){
+        foreach ($devicesData as $deviceData)
+        {
         }
     }
 
-    public function getSensorData(array $devicesData){
+    public function getSensorData(array $devicesData)
+    {
 
     }
 
-    public function getWaterControlData(array $devicesData){
+    public function getWaterControlData(array $devicesData)
+    {
 
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Screen\Temperature;
+namespace App\Controller\Screen\Markup\Temperature;
 
 use App\Service\HueService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * IndoorController
- * @Route(path="/screen/temperature")
+ * @Route(path="/screen/markup/temperature", name="markup-temperature-")
  */
 class IndoorController extends AbstractController
 {
@@ -18,7 +18,6 @@ class IndoorController extends AbstractController
      * @var HueService
      */
     private $hueService;
-
 
     /**
      * @param HueService $hueService
@@ -29,7 +28,7 @@ class IndoorController extends AbstractController
     }
 
     /**
-     * @Route(path="/indoor", name="temperature-indoor", methods={"GET"})
+     * @Route(path="/indoor", name="indoor", methods={"GET"})
      *
      * @param Request $request
      *
@@ -40,8 +39,8 @@ class IndoorController extends AbstractController
         return $this->render(
             'temperature/indoor/index.html.twig',
             [
-                'first' => $this->hueService->getTemperatureOf1stFloor()/100,
-                'second' => $this->hueService->getTemperatureOf2ndFloor()/100
+                'first'  => $this->hueService->getTemperatureOf1stFloor() / 100,
+                'second' => $this->hueService->getTemperatureOf2ndFloor() / 100
             ]
         );
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Screen\Temperature;
+namespace App\Controller\Screen\Markup\Temperature;
 
 use App\Service\GardenaService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * IndoorController
- * @Route(path="/screen/temperature")
+ * @Route(path="/screen/markup/temperature", name="markup-temperature-")
  */
 class OutdoorController extends AbstractController
 {
@@ -30,8 +30,7 @@ class OutdoorController extends AbstractController
     }
 
     /**
-     * @Route(path="/outdoor", name="temperature-outdoor", methods={"GET"})
-     *
+     * @Route(path="/outdoor", name="outdoor", methods={"GET"})
      * @param Request $request
      *
      * @return Response
