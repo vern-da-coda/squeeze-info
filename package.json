@@ -29,7 +29,7 @@
     "autoprefixer": "^9.5.1",
     "core-js": "^3.0.0",
     "less": "^3.9.0",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "webpack-notifier": "^1.6.0"
